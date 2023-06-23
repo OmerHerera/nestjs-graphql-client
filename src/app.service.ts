@@ -3,10 +3,11 @@ import { gql, GraphQLClient } from 'graphql-request';
 
 @Injectable()
 export class AppService {
-  
+
   async fetchData(query) {
     try {
-      const client = new GraphQLClient('http://localhost:3000/graphql');
+      const graphQlURL = process.env.GRAPHQL_URL || 'http://localhost:3000/graphql';
+      const client = new GraphQLClient(graphQlURL);
       const data = await client.request(query);
       console.log(data);
       return data;
