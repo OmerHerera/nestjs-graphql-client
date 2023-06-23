@@ -14,7 +14,7 @@ export class AppService {
       console.error(error);
     }
   }
-  async getHello(): Promise<string> {
+  async getGraphql(): Promise<string> {
     // Define the GraphQL query
     const query = gql`
     query {

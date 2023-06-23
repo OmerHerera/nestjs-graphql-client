@@ -5,8 +5,13 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  async getHello(): Promise<string> {
-    return await this.appService.getHello();
+  @Get('graphql')
+  async getGraphql(): Promise<string> {
+    return await this.appService.getGraphql();
+  }
+
+  @Get('health-check')
+  async getHealthCheck(): Promise<string> {
+    return 'Is Live !';
   }
 }
